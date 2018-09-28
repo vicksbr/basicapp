@@ -1,3 +1,6 @@
+aniso8601==3.0.2
 Flask==1.0.2
+flask-mongoengine==0.9.5
 Flask-RESTful==0.3.6
+Flask-WTF==0.14.2
 mongoengine==0.15.3
