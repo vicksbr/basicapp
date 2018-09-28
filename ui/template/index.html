@@ -1,0 +1,17 @@
+<html>
+
+<head>
+</head>
+
+<body>
+	<p>ola mundo sem react</p>
+	<div id="app">
+	</div>
+	{% if debug %}
+	<script src="http://localhost:8080/bundle.js"></script>
+	{% else %}
+	<script src="http://localhost:5000/dist/bundle.js"></script>
+	{% endif %}
+</body>
+
+</html>
