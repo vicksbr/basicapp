@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Clients from "./Clients";
 
 export default class App extends Component {
   constructor() {
@@ -9,6 +10,7 @@ export default class App extends Component {
     return (
       <div>
         <p>ola mundo react heheh</p>
+        <Clients />
       </div>
     );
   }

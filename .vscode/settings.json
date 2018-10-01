@@ -1,4 +1,6 @@
 {
     "python.pythonPath": "${workspaceFolder}/env/bin/python",
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "editor.fontSize": 11,
+    "editor.fontWeight": "bold"
 }
