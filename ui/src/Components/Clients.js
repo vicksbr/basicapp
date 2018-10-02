@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { TextBox } from 'devextreme-react';
 
 class Clients extends Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class Clients extends Component {
 
   render() {
     return (
-      <div>
+     	<div>
+	<TextBox />
         <p>ola component cliente</p>
-      </div>
+   	</div>
     );
   }
 }

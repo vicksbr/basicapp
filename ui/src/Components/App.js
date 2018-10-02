@@ -9,7 +9,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <p>ola mundo react heheh</p>
         <Clients />
       </div>
     );
