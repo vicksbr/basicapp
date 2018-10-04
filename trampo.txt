@@ -1,0 +1,4 @@
+sudo docker build -t automation .
+sudo docker run -p 5000:5000 basicapp:latest
+sudo docker run -i -t  --name banco -d mongo:3.6.8
+sudo docker run --name banco -d mongo:latest
