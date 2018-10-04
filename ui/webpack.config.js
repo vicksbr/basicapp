@@ -1,5 +1,4 @@
 var webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+
+
 class Clients extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class Clients extends Component {
   render() {
     return (
       <div>
-        <p>ola component cliente</p>
+	<p>OLA VICKS</p>
       </div>
     );
   }

@@ -26,7 +26,8 @@ class Client(Document):
 
 @app.route('/')
 def index():
-    return render_template('index.html', debug=debug)
+    return "ola amigos!!!"
+    # return render_template('index.html', debug=debug)
 
 
 @app.route('/add')
