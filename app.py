@@ -6,7 +6,7 @@ debug = __name__ == '__main__'
 
 db = MongoEngine()
 
-app = Flask(__name__, template_folder="ui/template")
+app = Flask(__name__, template_folder="ui/template",static_folder="ui/dist")
 app.config['MONGODB_DB'] = 'dbteste-raccoon'
 app.config['MONGODB_HOST'] = 'ds127443.mlab.com'
 app.config['MONGODB_PORT'] = 27443
@@ -71,4 +71,4 @@ def listScripts():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5000)
+    app.run(debug=debug, port=5000)

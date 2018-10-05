@@ -27,8 +27,9 @@ RUN pip3 install -r requirements.txt
 
 COPY app.py /
 COPY /ui/template/index.html /ui/template/index.html
-COPY --from=builder /ui/dist/bundle.js  /static
+COPY --from=builder /ui/dist/bundle.js  /ui/dist/bundle.js
 
 WORKDIR /
 
 CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
+
