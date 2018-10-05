@@ -26,8 +26,8 @@ class Client(Document):
 
 @app.route('/')
 def index():
-    return "ola amigos!!!"
-    # return render_template('index.html', debug=debug)
+    print('xxxx debug')
+    return render_template('index.html', debug=debug)
 
 
 @app.route('/add')
@@ -71,4 +71,4 @@ def listScripts():
 
 
 if __name__ == '__main__':
-    app.run(debug=debug, port=5000)
+    app.run(debug=False, port=5000)
