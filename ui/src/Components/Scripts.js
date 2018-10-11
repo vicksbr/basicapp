@@ -141,7 +141,6 @@ class Scripts extends React.Component {
 			<Paper className={classes.root}>
 				<div>
 					<Table className={classes.table}>
-
 						<TableHead>
 							<TableRow>
 								<TableCell>Edit</TableCell>
@@ -149,11 +148,7 @@ class Scripts extends React.Component {
 								<TableCell>Last Login</TableCell>
 							</TableRow>
 						</TableHead>
-
-
 						<TableBody>
-
-
 							{scripts.map(n => {
 								return (
 									<TableRow key={n.script_name}>
