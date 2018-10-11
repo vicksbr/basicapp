@@ -32,37 +32,38 @@ const styles = theme => ({
 	}
 });
 
-class ServiceTable extends React.Component {
+class Scripts extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			serviceData: [
+			scripts: [
 				{
-					domain: "Domain 1",
-					name: "Get Users"
+					
+					lastlogin: "10102010",
+					script_name: "Script1",
 				},
 				{
-					domain: "Domain 2",
-					name: "Get Location"
+					lastlogin: "10102005",
+					script_name: "Script2"
 				},
 				{
-					domain: "Domain 3",
-					name: "Get Name"
+					lastlogin: "10102001",
+					script_name: "Script3"
 				},
 				{
-					domain: "Domain 4",
-					name: "Get Age"
+					lastlogin: "10102000",
+					script_name: "Script4"
 				}
 			],
 			editedIndex: -1,
-			editedDomain: "",
-			editedName: ""
+			editedscript_name: "",
+			editedlastlogin: ""
 		};
 	}
 	deleteComponent(index) {
-		const serviceData = this.state.serviceData.slice();
-		serviceData.splice(index, 1);
-		this.setState({ serviceData });
+		const scripts = this.state.scripts.slice();
+		scripts.splice(index, 1);
+		this.setState({ scripts });
 	}
 
 	editComponent(index) {
@@ -72,24 +73,24 @@ class ServiceTable extends React.Component {
 		this.setState({ editedIndex: -1 });
 	};
 	updateComponent(index) {
-		const serviceData = this.state.serviceData.slice();
-		serviceData[index].domain = this.state.editedDomain;
-		serviceData[index].name = this.state.editedName;
+		const scripts = this.state.scripts.slice();
+		scripts[index].script_name = this.state.editedscript_name;
+		scripts[index].lastlogin = this.state.editedlastlogin;
 		this.setState({
-			serviceData,
-			editedDomain: "",
-			editedName: "",
+			scripts,
+			editedscript_name: "",
+			editedlastlogin: "",
 			editedIndex: -1
 		});
 	}
-	handleChange = name => event => {
+	handleChange = lastlogin => event => {
 		this.setState({
-			[name]: event.target.value
+			[lastlogin]: event.target.value
 		});
 	};
 	render() {
 
-		const { editedIndex, serviceData } = this.state;
+		const { editedIndex, scripts } = this.state;
 		const { classes } = this.props;
 
 		const deleteIcon = index => (
@@ -116,24 +117,24 @@ class ServiceTable extends React.Component {
 			</IconButton>
 		);
 
-		const editDomain = (
+		const editscript_name = (
 			<TextField
-				id="domain"
-				label="Domain"
+				id="script_name"
+				label="script_name"
 				className={classes.textField}
-				value={this.state.editedDomain}
+				value={this.state.editedscript_name}
 				margin="normal"
-				onChange={this.handleChange("editedDomain")}
+				onChange={this.handleChange("editedscript_name")}
 			/>
 		);
-		const editName = (
+		const editlastlogin = (
 			<TextField
-				id="name"
-				label="Name"
+				id="lastlogin"
+				label=""
 				className={classes.textField}
-				value={this.state.editedName}
+				value={this.state.editedlastlogin}
 				margin="normal"
-				onChange={this.handleChange("editedName")}
+				onChange={this.handleChange("editedlastlogin")}
 			/>
 		);
 		return (
@@ -153,30 +154,30 @@ class ServiceTable extends React.Component {
 						<TableBody>
 
 
-							{serviceData.map(n => {
+							{scripts.map(n => {
 								return (
-									<TableRow key={n.domain}>
+									<TableRow key={n.script_name}>
 										<TableCell
 											className={classes.iconCell}
 											component="th"
 											scope="row"
 										>
 											<div style={divStyle}>
-												{serviceData.indexOf(n) === editedIndex
-													? okBtn(serviceData.indexOf(n))
-													: deleteIcon(serviceData.indexOf(n))}
-												{serviceData.indexOf(n) === editedIndex
+												{scripts.indexOf(n) === editedIndex
+													? okBtn(scripts.indexOf(n))
+													: deleteIcon(scripts.indexOf(n))}
+												{scripts.indexOf(n) === editedIndex
 													? cancelBtn
-													: editIcon(serviceData.indexOf(n))}
+													: editIcon(scripts.indexOf(n))}
 											</div>
 										</TableCell>
 										<TableCell>
-											{serviceData.indexOf(n) === editedIndex
-												? editDomain
-												: n.domain}
+											{scripts.indexOf(n) === editedIndex
+												? editscript_name
+												: n.script_name}
 										</TableCell>
 										<TableCell>
-											{serviceData.indexOf(n) === editedIndex ? editName : n.name}
+											{scripts.indexOf(n) === editedIndex ? editlastlogin : n.lastlogin}
 										</TableCell>
 									</TableRow>
 								);
@@ -193,4 +194,4 @@ var divStyle = {
 	display: 'flex',
 };
 
-export default withStyles(styles)(ServiceTable);
+export default withStyles(styles)(Scripts);
