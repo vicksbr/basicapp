@@ -23,6 +23,7 @@ const styles = theme => ({
 	},
 	table: {
 		minWidth: 700
+
 	},
 	iconCell: {
 		width: "7.4em"
@@ -38,7 +39,7 @@ class Scripts extends React.Component {
 		this.state = {
 			scripts: [
 				{
-					
+
 					lastlogin: "10102010",
 					script_name: "Script1",
 				},
@@ -61,7 +62,7 @@ class Scripts extends React.Component {
 		};
 	}
 	deleteComponent(index) {
-		const scripts = this.state.scripts.slice();
+		const scripts = this.state.scripts
 		scripts.splice(index, 1);
 		this.setState({ scripts });
 	}
@@ -73,7 +74,7 @@ class Scripts extends React.Component {
 		this.setState({ editedIndex: -1 });
 	};
 	updateComponent(index) {
-		const scripts = this.state.scripts.slice();
+		const scripts = this.state.scripts
 		scripts[index].script_name = this.state.editedscript_name;
 		scripts[index].lastlogin = this.state.editedlastlogin;
 		this.setState({
