@@ -1,18 +1,27 @@
 import React, { Component } from "react";
-import Clients from "./Clients";
-import Scripts from "./Scripts";
+import ClientsPuro from "./ClientsPuro";
+import Botao from "./Botao";
 
-export default class App extends Component {
-  constructor() {
-    super();
-  }
+class App extends Component {
+  state = {
+    nomeApp: "Minha Aplicacao"
+  };
+
+  handleNameChange = valor => {
+    this.setState({ nomeApp: valor });
+  };
 
   render() {
+    const { nomeApp } = this.state;
+
     return (
       <div>
-        <Clients />
-        <Scripts />
+        <p>Esse é um grande exemplo da {nomeApp}</p>
+        <ClientsPuro />
+        <Botao handleNameChange={this.handleNameChange} />
       </div>
     );
   }
 }
+
+export default App;
