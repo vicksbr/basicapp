@@ -2,14 +2,14 @@
 
 stack: flask/react/redux/mongodb/webpack/docker
 
-A fundation for a future learning object.
+Fundation for a learning object about software development.
 
-This project aim to to teach the basis of good software development to people with beginner to intermediate programming skills who wants to learn lot of tools and technologies used to create cool and useful systems nowdays. 
+This project aim to to teach the basis an approach to software development to people with beginner to intermediate programming skills who wants to learn lot of cool tools and mordern technologies used to create useful systems. 
 
 
 git clone https://github.com/vicksbr/basicapp.git
 
-build & run backend
+build & run backend instructions
 
 python3 -m venv env
 source /env/bin/activate
