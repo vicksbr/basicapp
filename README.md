@@ -12,7 +12,7 @@ This project aim to to teach the basis of software development to people with be
 git clone https://github.com/vicksbr/basicapp.git
 ```
 
-**build & run backend instructions**
+**Build & run backend instructions**
 ```bash
 python3 -m venv env
 source /env/bin/activate
@@ -34,5 +34,11 @@ docker-compose build
 ```bash
 docker-compose up
 ```
+**Access via http://localhost:5000**
 
-**access via http://localhost:5000**
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
