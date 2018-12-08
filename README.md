@@ -11,27 +11,28 @@ This project aim to to teach the basis of software development to people with be
 ```bash
 git clone https://github.com/vicksbr/basicapp.git
 ```
-build & run backend instructions
+
+**build & run backend instructions**
 ```bash
 python3 -m venv env
 source /env/bin/activate
 python app.py
 ```
 
-build react devserver (w/ hot reload)
+**Build react devserver (w/ hot reload)**
 ```bash
 cd ui
 npm install
 npm run dev
 ```
-to build docker image
+**Build docker image**
 ```bash
 docker-compose build
 ```
-to run the application @ container
+**Run the application @ container**
 
 ```bash
 docker-compose up
 ```
 
-access via http://localhost:5000
+**access via http://localhost:5000**
