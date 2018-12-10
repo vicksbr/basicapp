@@ -31,4 +31,4 @@ COPY --from=builder /ui/dist/bundle.js /static
 
 WORKDIR /
 
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000"]
+CMD ["python3","app.py"]

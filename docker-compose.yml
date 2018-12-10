@@ -1,5 +1,5 @@
 web:
   build: .
-  command: python app.py
+  command: ["python3","app.py"]
   ports:
     - "5000:5000"
