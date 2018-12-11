@@ -1,36 +1,41 @@
 import { FETCH_CLIENTS } from "../actions/action-types";
 import { FETCH_CLIENTS_SUCCESS } from "../actions/action-types";
 import { ADD_CLIENTS_SUCCESS } from "../actions/action-types";
-
+import { CLEAR_DB_SUCCESS } from "../actions/action-types";
 const initialState = {
   clients: {}
 };
-
-
-const clientsToArray = (clientsObj) => {
-
-}
-
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CLIENTS:
       return { ...state, loading: true };
     case FETCH_CLIENTS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        clients: { ...state.clients, ...action.payload.data.clients }
-      };
-    case 'ADD_CLIENTS_FAIL': {
-      console.log('falhou')
-    };
-    case ADD_CLIENTS_SUCCESS: {
-      console.log(state.clients)
-      console.log(action.payload.data)
-      return {
-        clients: { ...state.clients, ...[action.payload.data] }
+      const { status } = action.payload.data;
+      if (status == 200) {
+        return {
+          ...state,
+          loading: false,
+          clients: { ...state.clients, ...action.payload.data.clients }
+        };
+      } else {
+        return {
+          ...state
+        };
       }
+    case "ADD_CLIENTS_FAIL": {
+      console.log("falhou");
+    }
+    case ADD_CLIENTS_SUCCESS: {
+      const { name } = action.payload.data;
+      return {
+        clients: { ...state.clients, [name]: action.payload.data }
+      };
+    }
+    case CLEAR_DB_SUCCESS: {
+      return {
+        ...initialState
+      };
     }
     default:
       return state;

@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { addClient } from "../../actions/index";
-
+import { clearDB } from "../../actions/index";
 const styles = () => ({
   divFlex: {
     display: "flex",
@@ -27,16 +27,28 @@ class Botao extends React.Component {
   };
 
   render() {
-    const { classes, handleNameChange, addClient } = this.props;
+    const { classes, handleNameChange, addClient, clearDB } = this.props;
     const { inputValue } = this.state;
 
     return (
       <div>
         <div className={classes.divFlex}>
           <div className={classes.divAddClient}>
-            <button type="button" onClick={() => addClient(inputValue)} >Add cliente</button>
-            <input type="text" name="AddClient" value={inputValue} onChange={this.handleInput} />
-          </div>          
+            <button type="button" onClick={() => addClient(inputValue)}>
+              Add cliente
+            </button>
+            <input
+              type="text"
+              name="AddClient"
+              value={inputValue}
+              onChange={this.handleInput}
+            />
+          </div>
+          <div className={classes.divAddClient}>
+            <button type="button" onClick={() => clearDB()}>
+              Clear DB
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -44,13 +56,13 @@ class Botao extends React.Component {
 }
 
 const mapDispatchToProps = {
-  addClient
+  addClient,
+  clearDB
 };
 
 const BotaoConnected = connect(
   null,
   mapDispatchToProps
 )(Botao);
-
 
 export default withStyles(styles)(BotaoConnected);

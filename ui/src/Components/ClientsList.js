@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchClients } from "../../actions/index";
 
-class ClientsPuro extends Component {
+class ClientList extends Component {
   constructor(props) {
     super(props);
   }
@@ -40,4 +40,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ClientsPuro);
+)(ClientList);

@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import ClientsPuro from "./ClientsPuro";
+import ClientsList from "./ClientsList";
 import Botao from "./Botao";
 
 class App extends Component {
   state = {
-    nomeApp: "Minha Aplicacao"
+    nomeApp: "uma aplicação web"
   };
 
   handleNameChange = valor => {
     this.setState({ nomeApp: valor });
   };
 
-  handleAddClient = (valor) =>{
-    this.setState({name: valor});
+  handleAddClient = valor => {
+    this.setState({ name: valor });
   };
 
   render() {
@@ -20,9 +20,12 @@ class App extends Component {
 
     return (
       <div>
-        <p>Esse é um grande exemplo da {nomeApp}</p>
-        <ClientsPuro />
-        <Botao handleNameChange={this.handleNameChange} handleAddClient={this.handleAddClient} />
+        <p>Esse é um grande exemplo de {nomeApp}</p>
+        <ClientsList />
+        <Botao
+          handleNameChange={this.handleNameChange}
+          handleAddClient={this.handleAddClient}
+        />
       </div>
     );
   }

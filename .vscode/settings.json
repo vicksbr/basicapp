@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "${workspaceFolder}/env/bin/python",
+    "python.pythonPath": "/bin/python",
     "python.linting.pylintEnabled": false,
     "editor.fontSize": 11,
     "editor.fontWeight": "bold",
