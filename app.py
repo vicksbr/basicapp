@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, Blueprint
 from flask_mongoengine import MongoEngine
 from mongoengine import *
-
+import json
 debug = __name__ == '__main__'
 
 db = MongoEngine()
@@ -36,20 +36,18 @@ def index():
 def add():
     x1 = Script("ScriptK");
     if request.method == "POST":
-          print("----------------------")
-          print(request.form)
-          print("----------------------")
-          name = request.form["name"]
+          data = request.get_json()
+          name = data["name"]
           x = Client(name, [x1])
           x.save()
     elif request.method == "GET":
         print("tentei dar um get")
     else:
         print("tentei qualquer bosta")
-    
-    #nome = request.form["nome"]        
+
+    #nome = request.form["nome"]
     #print("nome passado como parametro:",nome)
-   
+
     #x = Client(nome, [x1])
     #x.save()
     # print("adicionando")
@@ -71,7 +69,7 @@ def add():
     # x10 = Script("ScriptGelaoooo")
     # w = Client("Gelaoooo", [x1,x3,x10])
     # w.  save()
-    return render_template('index.html', debug=debug)
+    return json.dumps({'name':x.name, 'scripts': [script.name for script in x.scripts] })
 
 
 @app.route('/clients/')

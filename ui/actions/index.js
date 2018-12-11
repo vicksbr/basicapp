@@ -4,27 +4,27 @@ import { ADD_CLIENTS } from "./action-types"
 import { ADD_CLIENTS_SUCCESS } from "./action-types"
 
 export const fetchClients = () => ({
-  type: "FETCH_CLIENTS",
-  payload: {
-    request: {
-      method: "GET",
-      url: "/clients"
-    }
-  }
+	type: "FETCH_CLIENTS",
+	payload: {
+		request: {
+			method: "GET",
+			url: "/clients"
+		}
+	}
 });
 
 export const addClient = (name) => ({
 	type: "ADD_CLIENTS",
 	payload: {
-	  request: {
-	  	method: "POST",
-	  	url: "/add",
-		body: { 
-			'name':name
+		request: {
+			method: "POST",
+			url: "/add",
+			data: {
+				'name': name
+			}
 		}
-	  }
 	}
 });
-  
+
 
 
