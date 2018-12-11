@@ -11,6 +11,10 @@ class App extends Component {
     this.setState({ nomeApp: valor });
   };
 
+  handleAddClient = (valor) =>{
+    this.setState({name: valor});
+  };
+
   render() {
     const { nomeApp } = this.state;
 
@@ -18,7 +22,7 @@ class App extends Component {
       <div>
         <p>Esse é um grande exemplo da {nomeApp}</p>
         <ClientsPuro />
-        <Botao handleNameChange={this.handleNameChange} />
+        <Botao handleNameChange={this.handleNameChange} handleAddClient={this.handleAddClient} />
       </div>
     );
   }

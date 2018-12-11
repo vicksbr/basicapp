@@ -1,5 +1,7 @@
 import { FETCH_CLIENTS } from "./action-types";
 import { FETCH_CLIENTS_SUCCESS } from "./action-types";
+import { ADD_CLIENTS } from "./action-types"
+import { ADD_CLIENTS_SUCCESS } from "./action-types"
 
 export const fetchClients = () => ({
   type: "FETCH_CLIENTS",
@@ -10,3 +12,19 @@ export const fetchClients = () => ({
     }
   }
 });
+
+export const addClient = (name) => ({
+	type: "ADD_CLIENTS",
+	payload: {
+	  request: {
+	  	method: "POST",
+	  	url: "/add",
+		body: { 
+			'name':name
+		}
+	  }
+	}
+});
+  
+
+
