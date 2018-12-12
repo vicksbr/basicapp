@@ -11,7 +11,7 @@ const rootReducer = (state = initialState, action) => {
     case FETCH_CLIENTS:
       return { ...state, loading: true };
     case FETCH_CLIENTS_SUCCESS:
-      const { status } = action.payload.data;
+      const { status } = action.payload;
       if (status == 200) {
         return {
           ...state,
