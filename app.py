@@ -72,8 +72,13 @@ def listClients():
 
 @app.route('/clear/')
 def cleanDB():
-    Client.objects.delete()
+    Client.drop_collection()
     return '200'
+
+
+@app.route('/kek/')
+def kek():
+    return 'kek é um cara bem legal'
 
 
 if __name__ == '__main__':

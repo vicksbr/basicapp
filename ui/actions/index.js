@@ -31,7 +31,7 @@ export const clearDB = () => ({
   payload: {
     request: {
       method: "GET",
-      ulr: "/clear"
+      url: "/clear"
     }
   }
 });
