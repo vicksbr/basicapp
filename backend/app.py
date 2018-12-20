@@ -1,9 +1,9 @@
 from flask import Flask, render_template, jsonify, request, Blueprint
 from flask_mongoengine import MongoEngine
 import json
-from backend.server.models.client import *
-from backend.server.config import config
-from backend.server import create_app
+from server.models.client import *
+from server.config import config
+from server import create_app
 
 debug = __name__ == '__main__'
 

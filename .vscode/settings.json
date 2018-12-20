@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "env/bin/python",
+    "python.pythonPath": "/sbin/python",
     "python.linting.pylintEnabled": false,
     "editor.fontSize": 11,
     "editor.fontWeight": "bold",
