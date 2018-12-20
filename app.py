@@ -1,6 +1,5 @@
 from flask import Flask, render_template, jsonify, request, Blueprint
-from flask_mongoengine import MongoEngine
-from mongoengine import *
+from mongoengine import as me
 import json
 debug = __name__ == '__main__'
 
@@ -15,7 +14,7 @@ app.config['MONGODB_PASSWORD'] = 'teste12'
 db.init_app(app)
 
 
-class Script(Document):
+class Script(me.Document):
     name = StringField(required=True, unique=True)
 
     def to_dict(self):
