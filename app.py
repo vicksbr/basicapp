@@ -1,19 +1,13 @@
 from flask import Flask, render_template, jsonify, request, Blueprint
 from flask_mongoengine import MongoEngine
 import json
-from backend.models.client import *
+from backend.server.models.client import *
+from backend.server.config import config
+from backend.server import create_app
 
 debug = __name__ == '__main__'
 
-db = MongoEngine()
-
-app = Flask(__name__, template_folder="ui/template", static_folder="ui/dist")
-app.config['MONGODB_DB'] = 'dbteste-raccoon'
-app.config['MONGODB_HOST'] = 'ds127443.mlab.com'
-app.config['MONGODB_PORT'] = 27443
-app.config['MONGODB_USERNAME'] = 'pedropuzzi'
-app.config['MONGODB_PASSWORD'] = 'teste12'
-db.init_app(app)
+app = create_app(config, debug)
 
 
 @app.route('/')

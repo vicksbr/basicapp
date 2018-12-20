@@ -4,4 +4,5 @@ Flask-RESTful==0.3.6
 Flask-WTF==0.14.2
 mongoengine==0.15.3
 gunicorn==19.9.0
+Flask-Cors==3.0.6
 

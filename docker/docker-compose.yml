@@ -1,14 +1,13 @@
-<<<<<<< Updated upstream
-web:
-  build: .
-  command: ["python3","app.py"]
-  ports:
-    - "5000:5000"
-=======
-version: '3'
+version: "3.7"
 services:
-  web:
-    build: .
+  scriptwatcher_api_mongodb:
+    container_name: "basic_mongodb"
+    image: mongo:latest
+    network_mode: host
+    volumes:
+      - basic_app_data:/data/db
     ports:
-     - "5000:5000"
->>>>>>> Stashed changes
+      - "27017:2017"
+
+volumes:
+  basic_app_data:
