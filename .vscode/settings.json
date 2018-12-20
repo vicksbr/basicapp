@@ -1,7 +1,7 @@
 {
-    "python.pythonPath": "/bin/python",
+    "python.pythonPath": "env/bin/python",
     "python.linting.pylintEnabled": false,
     "editor.fontSize": 11,
     "editor.fontWeight": "bold",
-    "python.formatting.provider": "autopep8"
+    "python.formatting.provider": "yapf"
 }

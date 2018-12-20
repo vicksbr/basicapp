@@ -1,6 +1,8 @@
 from flask import Flask, render_template, jsonify, request, Blueprint
-from mongoengine import as me
+from flask_mongoengine import MongoEngine
 import json
+from backend.models.client import *
+
 debug = __name__ == '__main__'
 
 db = MongoEngine()
@@ -12,26 +14,6 @@ app.config['MONGODB_PORT'] = 27443
 app.config['MONGODB_USERNAME'] = 'pedropuzzi'
 app.config['MONGODB_PASSWORD'] = 'teste12'
 db.init_app(app)
-
-
-class Script(me.Document):
-    name = StringField(required=True, unique=True)
-
-    def to_dict(self):
-        return {
-            'name': self.name
-        }
-
-
-class Client(Document):
-    name = StringField(required=True, unique=True)
-    scripts = EmbeddedDocumentListField('Script')
-
-    def to_dict(self):
-        return {
-            'name': self.name,
-            'scripts': {script.name: script.to_dict() for script in self.scripts}
-        }
 
 
 @app.route('/')
@@ -60,8 +42,10 @@ def add():
 def listClients():
     clients = Client.objects.all()
     if clients:
-        response = jsonify(
-            {'clients': {client.name: client.to_dict() for client in clients}})
+        response = jsonify({
+            'clients': {client.name: client.to_dict()
+                        for client in clients}
+        })
         httpcode = 200
     else:
         response = jsonify({'clients': 'clients not found'})
@@ -73,11 +57,6 @@ def listClients():
 def cleanDB():
     Client.drop_collection()
     return '200'
-
-
-@app.route('/kek/')
-def kek():
-    return 'kek é um cara bem legal'
 
 
 if __name__ == '__main__':
