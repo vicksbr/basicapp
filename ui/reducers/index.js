@@ -1,7 +1,9 @@
-import { FETCH_CLIENTS } from '../actions/action-types';
-import { FETCH_CLIENTS_SUCCESS } from '../actions/action-types';
-import { ADD_CLIENTS_SUCCESS } from '../actions/action-types';
-import { CLEAR_DB_SUCCESS } from '../actions/action-types';
+import {
+  FETCH_CLIENTS,
+  FETCH_CLIENTS_SUCCESS,
+  ADD_CLIENTS_SUCCESS,
+  CLEAR_DB_SUCCESS,
+} from '../actions/action-types';
 
 const initialState = {
   clients: {},
@@ -12,7 +14,7 @@ const rootReducer = (state = initialState, action) => {
     case FETCH_CLIENTS:
       return { ...state, loading: true };
     case FETCH_CLIENTS_SUCCESS:
-      if (action.payloadstatus == 200) {
+      if (action.payload.status === 200) {
         return {
           ...state,
           loading: false,
