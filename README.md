@@ -18,7 +18,7 @@ From root folder:
 ```bash
 cd backend
 python3 -m venv env
-source /env/bin/activate
+source env/bin/activate
 python app.py
 ```
 
