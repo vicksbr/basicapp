@@ -2,9 +2,8 @@
 
 stack: flask/react/redux/mongodb/webpack/docker
 
-Fundation for a learning object about software development.
+Fundation of a learning object about software development.
 
-This project aim to to teach the basis of software development to people with skills ranging from beginner to intermediate amd who wants to learn lot of cool tools and modern technologies that are used to create useful applications. 
 
 # Instructions
 
