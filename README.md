@@ -11,7 +11,7 @@ Fundation of a learning object about software development.
 git clone https://github.com/vicksbr/basicapp.git
 ```
 
-**Build & run backend instructions**
+**Build & run backend:**
 
 From root folder:
 
@@ -22,7 +22,7 @@ source env/bin/activate
 python app.py
 ```
 
-**Build react devserver (w/ hot reload)**
+**Build & run development frontent environment:**
 
 From root folder:
 
@@ -35,7 +35,7 @@ npm run dev
 **Run the local mongo container**
 
 ```bash
-docker-compose up
+docker-compose up -d 
 ```
 **Access via http://localhost:5000**
 
