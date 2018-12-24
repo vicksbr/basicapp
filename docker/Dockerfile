@@ -28,7 +28,6 @@ RUN apk update && apk add --no-cache --virtual build-deps \
 COPY /backend $APP_ROOT/
 COPY --from=builder /ui/dist/bundle.js  $APP_ROOT/server/static/bundle.js
 
-
 WORKDIR $APP_ROOT/
 
 
