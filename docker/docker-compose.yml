@@ -9,6 +9,5 @@ services:
       - basic_app_data:/data/db
     ports:
       - "27017:2017"
-
 volumes:
   basic_app_data:
