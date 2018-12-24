@@ -1,32 +1,32 @@
 export const fetchClients = () => ({
-  type: 'FETCH_CLIENTS',
+  type: "FETCH_CLIENTS",
   payload: {
     request: {
-      method: 'GET',
-      url: '/clients',
-    },
-  },
+      method: "GET",
+      url: "/clients"
+    }
+  }
 });
 
 export const addClient = name => ({
-  type: 'ADD_CLIENTS',
+  type: "ADD_CLIENTS",
   payload: {
     request: {
-      method: 'POST',
-      url: '/clients/add',
+      method: "POST",
+      url: "/clients/add",
       data: {
-        name,
-      },
-    },
-  },
+        name
+      }
+    }
+  }
 });
 
 export const clearDB = () => ({
-  type: 'CLEAR_DB',
+  type: "CLEAR_DB",
   payload: {
     request: {
-      method: 'GET',
-      url: '/db/clear',
-    },
-  },
+      method: "GET",
+      url: "/db/clear"
+    }
+  }
 });

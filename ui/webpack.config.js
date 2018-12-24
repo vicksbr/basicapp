@@ -1,32 +1,28 @@
-const webpack = require('webpack');
-
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-  publicPath = 'http://localhost:8080/';
-} else {
-  publicPath = './dist';
-}
-
 module.exports = {
-  devtool: 'source-map',
-  entry: './src/index.js',
+  devtool: "source-map",
+  entry: "./src/index.js",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ["babel-loader"]
       },
-    ],
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"]
   },
   output: {
-    filename: 'bundle.js',
+    filename: "bundle.js"
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     compress: true,
-    port: 8080,
-  },
+    port: 8080
+  }
 };

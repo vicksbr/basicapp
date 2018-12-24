@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchClients } from "../../actions/index";
+import PropTypes from "prop-types";
+import { fetchClients as fetchClientsAction } from "../../../actions/index";
 
 class ClientList extends Component {
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    clients: PropTypes.object.isRequired,
+    fetchClients: PropTypes.func.isRequired
+  };
 
   componentDidMount() {
     const { fetchClients } = this.props;
@@ -17,13 +19,12 @@ class ClientList extends Component {
     const clientsArr = Object.values(clients);
 
     return (
-      <div>
-        <p>Lista de clientes</p>
-        <div>
-          {clientsArr.map((client, index) => {
-            return <p key={index}>{client.name}</p>;
-          })}
-        </div>
+      <div style={{ marginTop: "10px" }}>
+        <ul>
+          {clientsArr.map(client => (
+            <li key={client.name}>{client.name}</li>
+          ))}
+        </ul>
       </div>
     );
   }
@@ -34,7 +35,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchClients
+  fetchClients: fetchClientsAction
 };
 
 export default connect(
