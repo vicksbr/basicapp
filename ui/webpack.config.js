@@ -1,11 +1,3 @@
-const webpack = require("webpack");
-
-if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-  publicPath = "http://localhost:8080/";
-} else {
-  publicPath = "./dist";
-}
-
 module.exports = {
   devtool: "source-map",
   entry: "./src/index.js",
