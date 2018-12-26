@@ -1,9 +1,0 @@
-{
-    "python.pythonPath": "/sbin/python",
-    "python.linting.pylintEnabled": false,
-    "editor.fontSize": 11,
-    "editor.fontWeight": "bold",
-    "python.formatting.provider": "yapf",
-    "python.linting.pep8Enabled": true,
-    "python.linting.enabled": true
-}
