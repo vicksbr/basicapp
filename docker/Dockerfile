@@ -1,6 +1,6 @@
 FROM node as builder
 
-COPY ui/ ui/
+COPY /ui/ /ui/
 WORKDIR /ui/
 RUN npm install
 RUN npm run build
@@ -30,5 +30,5 @@ COPY --from=builder /ui/dist/bundle.js  $APP_ROOT/server/static/bundle.js
 
 WORKDIR $APP_ROOT/
 
+CMD gunicorn -k gevent app:app -b 0.0.0.0:5000
 
-CMD ["python3","app.py"]
