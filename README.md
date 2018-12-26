@@ -35,7 +35,7 @@ npm run dev
 **Run the local mongo container**
 
 ```bash
-docker-compose up -d 
+docker-compose up up --build 
 ```
 **Access via http://localhost:5000**
 
