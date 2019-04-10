@@ -1,19 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import MainView from "./MainView";
 
-class App extends Component {
-  state = {
-    nomeApp: "uma aplicação web react"
-  };
-
-  render() {
-    const { nomeApp } = this.state;
-
-    return (
-      <div>
-        <p>Esse é um grande exemplo de {nomeApp}</p>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <MainView />
+  </div>
+);
 
 export default App;
