@@ -1,7 +1,6 @@
 version: "3.7"
-
 services:
-  basic_mongodb:
+  scriptwatcher_api_mongodb:
     container_name: "basic_mongodb"
     image: mongo:latest
     network_mode: host
@@ -9,15 +8,6 @@ services:
       - basic_app_data:/data/db
     ports:
       - "27017:2017"
-
-  web:
-    build:
-      context: ../
-      dockerfile: docker/Dockerfile
-    image: basicapp:v1
-    network_mode: host
-    ports:
-      - "5000:5000"
 
 volumes:
   basic_app_data:

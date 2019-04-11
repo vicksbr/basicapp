@@ -5,30 +5,30 @@ WORKDIR /ui/
 RUN npm install
 RUN npm run build
 
+
 FROM alpine:3.8
 
-ENV APP_ROOT /basicapp/backend
-RUN mkdir -p $APP_ROOT/ 
+RUN apk add --no-cache ca-certificates python3 openssl libffi libxml2 libxslt
 
-RUN apk add --no-cache python3
-
-COPY backend/requirements.txt $APP_ROOT/
+COPY requirements.txt /
 
 RUN apk update && apk add --no-cache --virtual build-deps \
+	linux-headers \
 	gcc \
+	g++ \
 	build-base \
 	python3-dev \
 	tzdata \
-	&& cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime \
-	&& echo "America/Sao_Paulo" > /etc/timezone \
-	&& pip3 install --no-cache-dir -r $APP_ROOT/requirements.txt \
-	&& apk del build-deps
+	curl \
+	libxml2-dev \
+	libxslt-dev 
 
+RUN pip3 install -r requirements.txt 
 
-COPY /backend $APP_ROOT/
-COPY --from=builder /ui/dist/bundle.js  $APP_ROOT/server/static/bundle.js
+COPY app.py /
+COPY /ui/template/index.html /ui/template/index.html
+COPY --from=builder /ui/dist/bundle.js /static
 
-WORKDIR $APP_ROOT/
+WORKDIR /
 
-CMD gunicorn -k gevent app:app -b 0.0.0.0:5000
-
+CMD ["python3","app.py"]

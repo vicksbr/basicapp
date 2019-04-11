@@ -28,8 +28,11 @@ wheels/
 *.egg
 MANIFEST
 
-# IDE - VSCode
-.vscode/
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
 # Installer logs
 pip-log.txt
@@ -94,8 +97,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-<<<<<<< HEAD
-=======
 
 # Spyder project settings
 .spyderproject
@@ -121,4 +122,3 @@ ui/dist/
 
 # Config file
 **.json
->>>>>>> demo-components

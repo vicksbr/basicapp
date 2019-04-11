@@ -2,8 +2,9 @@
 
 stack: flask/react/redux/mongodb/webpack/docker
 
-Fundation of a learning object about software development.
+Fundation for a learning object about software development.
 
+This project aim to to teach the basis of software development to people with beginner to intermediate programming skills who wants to learn lot of cool tools and modern technologies used to create useful systems. 
 
 # Instructions
 
@@ -11,32 +12,27 @@ Fundation of a learning object about software development.
 git clone https://github.com/vicksbr/basicapp.git
 ```
 
-**Build & run backend:**
-
-From root folder:
-
+**Build & run backend instructions**
 ```bash
-cd backend
 python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
+source /env/bin/activate
 python app.py
 ```
 
-**Build & run development frontent environment:**
-
-From root folder:
-
+**Build react devserver (w/ hot reload)**
 ```bash
 cd ui
 npm install
 npm run dev
 ```
-
-**Run the local mongo container**
+**Build docker image**
+```bash
+docker-compose build
+```
+**Run the application @ container**
 
 ```bash
-docker-compose up --build 
+docker-compose up
 ```
 **Access via http://localhost:5000**
 
