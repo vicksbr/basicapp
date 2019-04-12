@@ -114,6 +114,7 @@ venv.bak/
 dmypy.json
 
 # node stuff
+node_modules/
 ui/node_modules/
 ui/dist/
 

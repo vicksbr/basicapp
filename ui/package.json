@@ -13,15 +13,13 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "babel-plugin-import": "^1.11.0",
-    "css-loader": "^2.1.1",
+    "babel-plugin-import": "^1.11.0",    
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.1",
     "html-loader": "^0.5.5",
     "redux-devtools-extension": "^2.13.8",
-    "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1",
@@ -33,17 +31,8 @@
     "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
-  "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
-    "acorn": "^6.1.1",
-    "antd": "^3.16.2",
-    "axios": "^0.18.0",
-    "prop-types": "^15.7.2",
+  "dependencies": {            
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.1",
-    "redux": "^4.0.1",
-    "redux-axios-middleware": "^4.0.0"
+    "react-dom": "^16.8.6"
   }
 }
