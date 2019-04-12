@@ -1,27 +1,27 @@
-import React from "react";
-import ClientsList from "./ClientsList";
-import ClientSearch from "./ClientSearch";
-import AddNewClientButton from "./AddNewClientButton";
+import React, { useReducer, useEffect } from "react";
+import useInput from "../utils"
+import useAPI from "../../../reducer/clientReducer"
 
-const div = {
-  display: "flex",
-  flexDirection: "column"
-};
+function Clients() {
+  
+  const inputClientName= useInput("")
+  const api = useAPI()  
+    
+  const clientsArr = Object.values(api.state.clients)
 
-const divTools = {
-  display: "flex"
-};
+  return(
+    <>    
+    <p>hooks da massa</p>
+    <button onClick={() => api.addClient(inputClientName.value)}>Add</button>    
+    <input type='text' {...inputClientName} />
+    <button onClick={() => api.clearClient}>clear</button>
+    <ul>      
+      {clientsArr.map( (el,index) => <li key={index}>{el.name}</li>)}
+    </ul>    
+    </>
+  );
+}
 
-const Clients = () => (
-  <div style={div}>
-    <div style={divTools}>
-      <ClientSearch />
-      <AddNewClientButton />
-    </div>
-    <div>
-      <ClientsList />
-    </div>
-  </div>
-);
+
 
 export default Clients;
