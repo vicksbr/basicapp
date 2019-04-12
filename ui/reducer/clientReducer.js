@@ -15,7 +15,7 @@ function clientReducer(state, action) {
       case 'del':
         return state;
       case 'clear':
-        return initialState
+        return clientInitialState
       default:
         return state;
     }  
