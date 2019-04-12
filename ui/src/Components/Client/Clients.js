@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import useInput from "../utils"
-import useAPI from "../../../reducer/clientReducer"
+import useAPI from "../useAPI"
 
 function Clients() {
   
@@ -14,7 +14,7 @@ function Clients() {
     <p>hooks da massa</p>
     <button onClick={() => api.addClient(inputClientName.value)}>Add</button>    
     <input type='text' {...inputClientName} />
-    <button onClick={() => api.clearClient}>clear</button>
+    <button onClick={() => api.clearClient()}>clear</button>
     <ul>      
       {clientsArr.map( (el,index) => <li key={index}>{el.name}</li>)}
     </ul>    

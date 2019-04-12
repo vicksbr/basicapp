@@ -1,14 +1,26 @@
+import clientReducer, { clientInitialState } from "../../reducer/clientReducer"
+import { useReducer, useEffect } from 'react'
 
 
 function useAPI() { 
   
-    const [state, dispatch] = useReducer(reducer, initialState);
-      return { 
-        state,
-        dispatch,
-        fetchClients: e => dispatch({type:'fetch'}),
-        addClient: clientName => dispatch({type:'add', payload: clientName})
-      }
-  }
+  const [state, dispatch] = useReducer(clientReducer,clientInitialState);
   
-  export default useAPI
+  const apiManager = {
+    addClient : clientName => dispatch({type:'add', payload: clientName}),
+    clearClient : () => dispatch({type:'clear'}),
+    delClient : () => dispatch({type:'del'}),
+    fetchClient: () => dispatch({type:'fetch'})
+  }
+
+  useEffect(() => {
+    apiManager.fetchClient()
+  }, [state.clients])
+
+  return { 
+      state,                  
+      ...apiManager
+    }
+}
+
+export default useAPI

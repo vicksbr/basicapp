@@ -1,6 +1,4 @@
-import { useReducer, useEffect } from 'react'
-
-const initialState = {
+export const clientInitialState = {
   'clients': {
     'default': {
       'name': "default"      
@@ -8,7 +6,7 @@ const initialState = {
   }
 };
 
-function reducer(state, action) {
+function clientReducer(state, action) {
     switch (action.type) {
       case "add":      
         return { ...state, ['clients']: { ...state.clients, [action.payload]: {name: action.payload }}};
@@ -23,20 +21,4 @@ function reducer(state, action) {
     }  
   }
   
-function useAPI() { 
-  
-  const [state, dispatch] = useReducer(reducer, initialState);
-  
-  useEffect(() => {
-    dispatch({type:'fetch'})
-  }, [state.clients])
-
-  return { 
-      state,                  
-      addClient: clientName => dispatch({type:'add', payload: clientName}),      
-      clearClient: () => dispatch({type:'clear'}),
-      delClient: () => dispatch({type:'del'}),
-    }
-}
-
-export default useAPI
+  export default clientReducer
