@@ -9,7 +9,7 @@ export const clientInitialState = {
 function clientReducer(state, action) {
     switch (action.type) {
       case "add":      
-        return { ...state, ['clients']: { ...state.clients, [action.payload]: {name: action.payload }}};
+        return { ...state, 'clients': { ...state.clients, [action.payload]: {name: action.payload }}};
       case "fetch":
         return state;
       case 'del':

@@ -1,10 +1,9 @@
-import clientReducer, { clientInitialState } from "../../reducer/clientReducer"
-import { useReducer, useEffect } from 'react'
-
+import { useEffect } from 'react'
+import {useStateValue} from './Provider'
 
 function useAPI() { 
   
-  const [state, dispatch] = useReducer(clientReducer,clientInitialState);
+  const [state, dispatch] = useStateValue();
   
   const apiManager = {
     addClient : clientName => dispatch({type:'add', payload: clientName}),
@@ -18,8 +17,8 @@ function useAPI() {
   }, [state.clients])
 
   return { 
-      state,                  
-      ...apiManager
+      state,                        
+      apiManager
     }
 }
 
