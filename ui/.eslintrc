@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["import"],
+  "extends": ["prettier", "airbnb"],
+  "plugins": ["prettier", "import"],
   "settings": {
     "import/resolver": {
       "webpack": {

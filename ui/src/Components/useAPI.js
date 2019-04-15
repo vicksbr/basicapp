@@ -1,25 +1,24 @@
-import { useEffect } from 'react'
-import {useStateValue} from './Provider'
+import { useEffect } from 'react';
+import { useStateValue } from './Provider';
 
-function useAPI() { 
-  
+function useAPI() {
   const [state, dispatch] = useStateValue();
-  
+
   const apiManager = {
-    addClient : clientName => dispatch({type:'add', payload: clientName}),
-    clearClient : () => dispatch({type:'clear'}),
-    delClient : () => dispatch({type:'del'}),
-    fetchClient: () => dispatch({type:'fetch'})
-  }
+    addClient: clientName => dispatch({ type: 'add', payload: clientName }),
+    clearClient: () => dispatch({ type: 'clear' }),
+    delClient: () => dispatch({ type: 'del' }),
+    fetchClient: () => dispatch({ type: 'fetch' }),
+  };
 
   useEffect(() => {
-    apiManager.fetchClient()
-  }, [state.clients])
+    apiManager.fetchClient();
+  }, [state.clients]);
 
-  return { 
-      state,                        
-      apiManager
-    }
+  return {
+    state,
+    ...apiManager,
+  };
 }
 
-export default useAPI
+export default useAPI;
