@@ -13,6 +13,9 @@ git clone https://github.com/vicksbr/basicapp.git
 ```
 
 **Build & run backend instructions**
+
+From root folder:
+
 ```bash
 cd backend 
 python3 -m venv env
@@ -22,6 +25,9 @@ python app.py
 ```
 
 **Build react devserver (w/ hot reload)**
+
+From root folder:
+
 ```bash
 cd ui
 npm install
