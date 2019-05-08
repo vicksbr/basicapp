@@ -6,7 +6,7 @@ stack used: flask/react/redux/mongodb/webpack/docker
 
 
 
-# Instructions
+# Instructions for development environment
 
 ```bash
 git clone https://github.com/vicksbr/basicapp.git
@@ -14,8 +14,10 @@ git clone https://github.com/vicksbr/basicapp.git
 
 **Build & run backend instructions**
 ```bash
+cd backend 
 python3 -m venv env
-source /env/bin/activate
+source env/bin/activate
+pip install -r requirements.txt
 python app.py
 ```
 
@@ -25,11 +27,7 @@ cd ui
 npm install
 npm run dev
 ```
-**Build docker image**
-```bash
-docker-compose build
-```
-**Run the application @ container**
+**Run docker-compose to start mongodb container**
 
 ```bash
 docker-compose up
