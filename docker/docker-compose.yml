@@ -1,13 +1,13 @@
 version: "3.7"
 services:
-  scriptwatcher_api_mongodb:
+  basicapp_mongodb:
     container_name: "basic_mongodb"
     image: mongo:latest
     network_mode: host
     volumes:
       - basic_app_data:/data/db
     ports:
-      - "27017:2017"
+      - "27017:27017"
 
 volumes:
   basic_app_data:

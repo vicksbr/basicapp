@@ -1,9 +1,8 @@
 import React from "react";
-import MainView from "./MainView";
 
 const App = () => (
   <div>
-    <MainView />
+    <p>Learning Object about software development</p>
   </div>
 );
 
