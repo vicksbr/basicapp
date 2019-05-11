@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, jsonify
-from server.models.client import Client
 
 
 def create_db_blueprint(debug):
