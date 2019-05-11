@@ -1,9 +1,8 @@
 import React from "react";
-import MainView from "./MainView";
 
 const App = () => (
   <div>
-    <MainView />
+    <p>Futuro Learning Object</p>
   </div>
 );
 
