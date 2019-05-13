@@ -1,5 +1,4 @@
 from flask import Flask, session
-from flask_cors import CORS
 from .database import init_db
 from .resources.index import create_index_blueprint
 from .resources.db import create_db_blueprint
@@ -16,6 +15,4 @@ def create_app(config, debug):
     app.register_blueprint(index, url_prefix="/")    
     app.register_blueprint(db, url_prefix="/api/db")
     
-    CORS(app)
-
     return app
