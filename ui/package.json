@@ -1,7 +1,7 @@
 {
-  "name": "basicapp",
-  "version": "1.0.0",
-  "description": "\"basic boilerplate for a flask-react application\"",
+  "name": "guardian",
+  "version": "0.0.1",
+  "description": "\"Notification based app that watch for Raccoon's media accounts\"",
   "repository": "https://github.com/vicksbr/basicapp.git",
   "license": "MIT",
   "devDependencies": {
