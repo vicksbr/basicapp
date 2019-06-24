@@ -23,7 +23,7 @@ RUN apk update && apk add --no-cache --virtual build-deps \
 	libxml2-dev \
 	libxslt-dev 
 
-RUN pip3 install -r requirements.txt 
+RUN pip3 install -r requirements.txt -r dev_requirements.txt
 
 COPY app.py /
 COPY /ui/template/index.html /ui/template/index.html
