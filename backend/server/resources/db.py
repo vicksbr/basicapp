@@ -7,7 +7,7 @@ def create_db_blueprint(debug):
     @db_blueprint.route("/healthcheck")
     def healthcheck():        
         code = '200'
-        response = jsonify({'response': 'healthcheck'})
+        response = jsonify({'response': 'alive'})
 
         return response, code
 
