@@ -122,3 +122,4 @@ ui/dist/
 
 # Config file
 **.json
+package-lock.json

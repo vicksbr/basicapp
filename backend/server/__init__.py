@@ -18,6 +18,5 @@ def create_app(config, debug):
     app.register_blueprint(index, url_prefix="/")
     app.register_blueprint(clients, url_prefix="/api/clients")
     app.register_blueprint(db, url_prefix="/api/db")
-    CORS(app)
 
     return app
