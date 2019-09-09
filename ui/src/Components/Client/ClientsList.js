@@ -14,14 +14,21 @@ class ClientList extends Component {
     fetchClients();
   }
 
+  filterClientByName = (clientsToFilter, name) => {
+    return clientsToFilter.filter(c => c.name.includes(name))
+  }
+
   render() {
-    const { clients } = this.props;
+    const { clients, inputSearch } = this.props;
     const clientsArr = Object.values(clients);
+    const clientsFiltered = this.filterClientByName(clientsArr, inputSearch)
+
+    console.log(inputSearch)
 
     return (
       <div style={{ marginTop: "10px" }}>
         <ul>
-          {clientsArr.map(client => (
+          {clientsFiltered.map(client => (
             <li key={client.name}>{client.name}</li>
           ))}
         </ul>
@@ -31,7 +38,8 @@ class ClientList extends Component {
 }
 
 const mapStateToProps = state => ({
-  clients: state.clients
+  clients: state.clients,
+  inputSearch: state.clientSearch.input
 });
 
 const mapDispatchToProps = {

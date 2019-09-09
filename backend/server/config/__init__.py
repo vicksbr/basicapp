@@ -5,6 +5,6 @@ config = {
         "db": "basic_api_data"
     },
     "APP": {
-        "SECRET_KEY": "dev"
+            "SECRET_KEY": "dev"
     },        
 }
