@@ -11,3 +11,4 @@ services:
 
 volumes:
   basic_app_data:
+

@@ -21,8 +21,8 @@ class ClientList extends Component {
     return (
       <div style={{ marginTop: "10px" }}>
         <ul>
-          {clientsArr.map(client => (
-            <li key={client.name}>{client.name}</li>
+          {clientsArr.map((client, index) => (
+            <li key={index}>{client.name}</li>
           ))}
         </ul>
       </div>
