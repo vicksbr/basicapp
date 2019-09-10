@@ -1,11 +1,14 @@
 const initialState = {
-  input: '',
+  input: ""
 };
 
 const clientSearchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_INPUT_SEARCH_CLIENT':
+    case "SET_INPUT_SEARCH_CLIENT":
       return { ...state, input: action.payload };
+    case "CLEAR_INPUT_SEARCH_CLIENT":
+      return { ...initialState };
+
     default:
       return state;
   }

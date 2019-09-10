@@ -4,10 +4,10 @@ import Clients from "./Client/Clients";
 
 const styleSider = {
   background: "#ccc",
-  overflow: 'auto',
-  height: '100vh',
-  position: 'fixed',
-  left: 0,
+  overflow: "auto",
+  height: "100vh",
+  position: "fixed",
+  left: 0
 };
 
 const styleMainView = {
@@ -21,7 +21,7 @@ const MainView = () => {
     <Layout>
       <Header className="header" />
       <Layout>
-        <Sider width={250} style={styleSider}> 
+        <Sider width={250} style={styleSider}>
           <Clients />
         </Sider>
         <Layout style={styleMainView}>

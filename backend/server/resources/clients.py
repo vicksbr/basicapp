@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request
 from server.models.client import Client
-from server.models.script import Script
 import json
 
 
@@ -12,25 +11,21 @@ def create_client_blueprint(debug):
         clients = Client.objects.all()
         if clients:
             response = jsonify({
-                'clients':
-                {client.name: client.to_dict()
-                 for client in clients}
+                'clients': {client.name: client.to_dict() for client in clients}
             })
             httpcode = 200
         else:
-            response = jsonify({'clients': 'clients not found'})
+            response = jsonify({})
             httpcode = 202
 
         return response, httpcode
 
     @client_blueprint.route('/add', methods=['GET', 'POST'])
     def add():
-        script_exemplo_1 = Script("ScriptExemplo 1")
-        script_exemplo_2 = Script("ScriptExemplo 2")
         if request.method == "POST":
             data = request.get_json()
             name = data["name"]
-            new_client = Client(name, [script_exemplo_1, script_exemplo_2])
+            new_client = Client(name)
             new_client.save()
             httpcode = 201
         elif request.method == "GET":

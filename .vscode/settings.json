@@ -3,7 +3,7 @@
     "python.linting.pylintEnabled": false,
     "editor.fontSize": 11,
     "editor.fontWeight": "bold",
-    "python.formatting.provider": "yapf",
+    "python.formatting.provider": "autopep8",
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true
 }
