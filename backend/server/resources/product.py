@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, render_template, request
+from flask import Blueprint
 from server.models.product import Product
 
 
@@ -7,31 +7,21 @@ def create_product_blueprint(debug):
     product_blueprint = Blueprint("product_blueprint", __name__)
 
     @product_blueprint.route("/", methods=['GET'])
-    def listProducts():
-        products = Product.objects.all()
-
-        products = [
-            {
-                'sku': 1,
-                'title': 'Tenis muito feioso',
-            },
-            {
-                'sku': 2,
-                'title': 'Sapatenis horrendo',
-            },
-            {
-                'sku': 3,
-                'title': 'Chinelo Rider da moda',
-            }
-        ]
+    def find_all():
+        products = Product.objects.all().to_json()
 
         if not products:
-            return ""
+            return json.dumps({})
 
-        return json.dumps(products)
+        return products
 
-    @product_blueprint.route("/", methods=['POST'])
-    def addProduct():
-        pass
+    @product_blueprint.route("/<string:sku>", methods=['GET'])
+    def find_one(sku: str):
+        product = Product.objects.get(sku=sku).to_json()
+
+        if not product:
+            return "No Product"
+
+        return product
 
     return product_blueprint

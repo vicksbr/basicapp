@@ -1,7 +1,8 @@
 import mongoengine as me
+from server.models.cart import Cart
 
 
-class Inventory(Document):
-    sku = me.StringField(required=True)
+class Inventory(me.Document):
+    _id = me.StringField(primary_key=True)
     qty = me.IntField(default=0)
-    carted = me.ListField(defaukt=[])
+    carted = me.ListField(default=[])

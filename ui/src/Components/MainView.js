@@ -68,7 +68,6 @@ const MainView = () => {
       </Header>
 
       <Content style={{ padding: '0 50px', marginTop: 64 }}>
-
         <div style={{ textAlign: 'center', backgroundColor: getRandomColor(), padding: '24px', height: '500px' }}>
           <h1>Conteudo {contentIdx}</h1>
         </div>
