@@ -48,7 +48,7 @@ const contentDivStyle = () => {
     textAlign: 'center',
     backgroundColor: getRandomColor(),
     padding: '24px',
-    height: '500px'
+    height: '700px'
   }
 }
 const contentStyle = { padding: '0 50px', marginTop: 64 }
