@@ -122,4 +122,29 @@ def create_cart_blueprint(debug):
 
         return json.dumps({'checkout': 'sucessful'})
 
+    @cart_blueprint.route("/<string:timeout>expire", methods=['GET'])
+    def expire_carts(timeout):
+        now = datetime.utcnow()
+        threshold = now - timedelta(seconds=timeout)
+
+        cart_coll = Cart._get_collection()
+        inventory_coll = Inventory._get_collection()
+
+        # Lock and find all the expiring carts
+        cart_coll.update(
+            {'status': 'active', 'last_modified': {'$lt': threshold}},
+            {'$set': {'status': 'expiring'}},
+            multi=True)
+
+        # Actually expire each cart
+        for cart in db.cart.find({'status': 'expiring'}):
+
+            # Return all line items to inventory
+            for item in cart['items']:
+                inventory_coll.update({'_id': item['sku'], 'carted.cart_id': cart['id'], 'carted.qty': item['qty']}, {
+                                      '$inc': {'qty': item['qty']}, '$pull': {'carted': {'cart_id': cart['id']}}})
+
+            cart_coll.update({'_id': cart['id']}, {
+                             '$set': {'status': 'expired'}})
+
     return cart_blueprint
