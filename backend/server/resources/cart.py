@@ -53,7 +53,7 @@ def create_cart_blueprint(debug):
             # Roll back our cart update
             cart_coll.update(
                 {'_id': cart_id},
-                {'$pull': {'items': {'sku': sku}}})
+                {'$pull': {'items': {'sku': sku, 'timestamp': now}}})
             raise Exception('Could not update cart')
 
         return json.dumps(result)
