@@ -10,7 +10,7 @@ time_now = datetime.now()
 
 my_products = [
     {
-        'sku': 'sku1',
+        'sku': 'sku100',
         'prod_type': 'doce',
         'title': 'Pudim',
         'description': (
@@ -18,53 +18,55 @@ my_products = [
             "Preparada com leite, leite condensado e ovos e assada cozida em banho maria"
             "em calda de açucar queimado"
         ),
-        'pricing': 5000
+        'pricing': 100
 
     },
     {
-        'sku': 'sku2',
+        'sku': 'sku200',
         'prod_type': 'salgado',
         'title': 'Pão',
         'description': (
             "alimento feito com farinha, esp. de trigo, amassada com água e fermento"
             "e assado ao forno."
         ),
-        'pricing': 15000
+        'pricing': 50
 
     },
+    {
+        'sku': 'sku300',
+        'prod_type': 'salgado',
+        'title': 'Esfiha Carne Moida',
+        'description': (
+            "alimento feito com farinha, esp. de trigo, amassada com água e fermento"
+            "e assado ao forno e recheado com carne moida de alta qualidade"
+        ),
+        'pricing': 10
+
+    },
+
 ]
 
 my_carts = [
     {
-        'cart_id': '1',
+        'cart_id': 'cart_id_1',
         'last_modified': time_now,
         'status': 'active',
         'items': [
             {
-                'sku': 'sku1',
-                'qty': 3,
-                'item_details': 'details_sku1'
-            },
-            {
-                'sku': 'sku2',
+                'sku': 'sku200',
                 'qty': 2,
                 'item_details': 'details_sku2'
             }
         ]
     },
     {
-        'cart_id': '2',
+        'cart_id': 'cart_id_2',
         'last_modified': time_now,
         'status': 'active',
         'items': [
             {
-                'sku': 'sku1',
+                'sku': 'sku200',
                 'qty': 5,
-                'item_details': 'details_sku1'
-            },
-            {
-                'sku': 'sku2',
-                'qty': 15,
                 'item_details': 'details_sku2'
             }
         ]
@@ -73,20 +75,17 @@ my_carts = [
 
 my_inventory = [
     {
-        '_id': 'sku1',
+        '_id': 'sku100',
         'qty': 100,
-        'carted': [
-            {'cart_id': '1', 'qty': 3, 'timestamp': time_now},
-            {'cart_id': '2', 'qty': 5, 'timestamp': time_now},
-        ]
+        'carted': []
 
     },
     {
-        '_id': 'sku2',
-        'qty': 200,
+        '_id': 'sku200',
+        'qty': 93,
         'carted': [
-            {'cart_id': '1', 'qty': 2, 'timestamp': time_now},
-            {'cart_id': '2', 'qty': 15, 'timestamp': time_now},
+            {'cart_id': 'cart_id_1', 'qty': 2, 'timestamp': time_now},
+            {'cart_id': 'cart_id_2', 'qty': 5, 'timestamp': time_now},
         ]
 
     }

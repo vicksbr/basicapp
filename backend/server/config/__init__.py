@@ -6,5 +6,6 @@ config = {
     },
     "APP": {
         "SECRET_KEY": "dev"
-    },        
+    },
+    "GTM": ''
 }

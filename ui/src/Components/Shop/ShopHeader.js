@@ -23,13 +23,13 @@ const menuProps = {
     defaultSelectedKeys: ['1']
 }
 
-const ShopHeader = () => {
+const ShopHeader = ({ menuState, setMenu }) => {
     const { Header } = Layout;
 
     return (
         <Header style={headerStyle}>
             <div style={styleLogo} />
-            <Menu {...menuProps}>
+            <Menu {...menuProps} onClick={(e) => setMenu(e.key)} selectedKeys={[menuState]}>
                 <Menu.Item key="1">items</Menu.Item>
                 <Menu.Item key="2">cart</Menu.Item>
             </Menu>

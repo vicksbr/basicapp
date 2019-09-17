@@ -1,5 +1,6 @@
-import { Carousel, Content, Layout } from 'antd';
-import React from 'react';
+import { Carousel, Layout } from 'antd';
+import React, { useState } from 'react';
+import { pushDataLayer } from "../utils";
 
 const carrouselSettings = {
     dots: true,
@@ -35,23 +36,37 @@ const contentStyle = { padding: '0 50px', marginTop: 64 }
 
 const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16);
 
-const contentDivStyle = {
-    textAlign: 'center',
-    backgroundColor: getRandomColor(),
-    padding: '24px',
-    height: '500px'
+const contentDivStyle = () => {
+    return {
+        textAlign: 'center',
+        backgroundColor: getRandomColor(),
+        padding: '24px',
+        height: '500px'
+    }
 }
 
 const itemsList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-
-const ItemsComponent = ({ contentIdx, setcontentIdx }) => {
+const ItemsComponent = () => {
     const { Content } = Layout
+    const [contentIdx, setcontentIdx] = useState(0)
+
+    const handeClick = (idx) => {
+        setcontentIdx(idx)
+        pushDataLayer({
+            event: 'viewProduct',
+            sku: idx
+        })
+    }
 
     return (
         <Content style={contentStyle}>
-            <div style={contentDivStyle}>
+            <div style={contentDivStyle()}>
                 <h1>Conteudo {contentIdx}</h1>
+                <input />
+                <button>
+                    Adicionar ao carrinho
+                </button>
             </div>
 
             <div style={divStyle}>
@@ -59,7 +74,9 @@ const ItemsComponent = ({ contentIdx, setcontentIdx }) => {
                     {
                         itemsList.map((el, idx) =>
                             <div color='cyan' key={idx}>
-                                <h3 style={StyleH3} onClick={() => setcontentIdx(idx)}>{el}</h3>
+                                <h3 style={StyleH3} onClick={() => handeClick(idx)}>
+                                    {el}
+                                </h3>
                             </div>
                         )
                     }

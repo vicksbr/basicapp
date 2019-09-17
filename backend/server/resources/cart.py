@@ -3,6 +3,7 @@ from flask import Blueprint
 from server.models.cart import Cart
 from server.models.inventory import Inventory
 from datetime import datetime
+from .utils import collect_payment
 
 
 def create_cart_blueprint(debug):
@@ -27,7 +28,7 @@ def create_cart_blueprint(debug):
         return cart
 
     @cart_blueprint.route("/<string:cart_id>/<string:sku>/<int:qty>/<string:details>", methods=['POST'])
-    def add_item_to_cart(cart_id, sku, qty, details='details'):
+    def add_item_to_cart(cart_id: str, sku: str, qty: float, details='details'):
         now = datetime.now()
 
         cart_coll = Cart._get_collection()
@@ -53,7 +54,7 @@ def create_cart_blueprint(debug):
             # Roll back our cart update
             cart_coll.update(
                 {'_id': cart_id},
-                {'$pull': {'items': {'sku': sku, 'timestamp': now}}})
+                {'$pop': {'items': 1}})
             raise Exception('Could not update cart')
 
         return json.dumps(result)
@@ -90,5 +91,35 @@ def create_cart_blueprint(debug):
             raise Exception('Could not update cart')
 
         return json.dumps(result)
+
+    @cart_blueprint.route("/<string:cart_id>/checkout", methods=['POST'])
+    def checkout(cart_id):
+        now = datetime.utcnow()
+        cart_coll = Cart._get_collection()
+
+        # Make sure the cart is still active and set to 'pending'. Also
+        #     fetch the cart details so we can calculate the checkout price
+        cart = cart_coll.find_and_modify(
+            {'_id': cart_id, 'status': 'active'},
+            update={'$set': {'status': 'pending', 'last_modified': now}})
+        if cart is None:
+            raise Exception('Cart Inactive')
+
+        print(cart)
+
+        # Validate payment details; collect payment
+        try:
+            collect_payment(cart)
+            db.cart.update({'_id': cart_id}, {'$set': {'status': 'complete'}})
+            db.inventory.update(
+                {'carted.cart_id': cart_id},
+                {'$pull': {'cart_id': cart_id}},
+                multi=True
+            )
+        except:
+            db.cart.update({'_id': cart_id}, {'$set': {'status': 'active'}})
+            raise Exception('Problems with checkout')
+
+        return json.dumps({'checkout': 'sucessful'})
 
     return cart_blueprint

@@ -13,7 +13,7 @@ def create_app(config, debug):
     connection = init_db(config)
     app.secret_key = config["APP"]["SECRET_KEY"]
 
-    index = create_index_blueprint(debug)
+    index = create_index_blueprint(debug, session, config['GTM'])
     clients = create_client_blueprint(debug)
     db = create_db_blueprint(debug)
     products = create_product_blueprint(debug)

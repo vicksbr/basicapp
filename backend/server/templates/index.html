@@ -1,11 +1,38 @@
 <html>
-  <head> </head>
-  <body>
-    <div id="app"></div>
-    {% if debug %}
-    <script src="http://localhost:8080/bundle.js"></script>
-    {% else %}
-    <script src="http://localhost:5000/dist/bundle.js"></script>
-    {% endif %}
-  </body>
+
+<head>
+  {% if gtm %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{gtm}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "{{gtm}}");
+  </script>
+  {% else %}
+  <script>
+    window.dataLayer = window.dataLayer || []
+  </script>
+  {% endif %}
+
+</head>
+
+<body>
+  <div id="app"></div>
+  {% if debug %}
+  <script src="http://localhost:8080/bundle.js"></script>
+  {% else %}
+  <script src="http://localhost:5000/dist/bundle.js"></script>
+  {% endif %}
+
+  <script>
+    window.user_info = {
+      'sub': "1",
+    }
+  </script>
+
+</body>
+
 </html>
