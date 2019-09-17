@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout } from 'antd';
-import ItemsComponent from "./Shop/Carousel";
+import ItemsComponent from "./Shop/ItemComponent";
 import ShopHeader from "./Shop/ShopHeader";
 import { pushDataLayer } from "./utils";
 
@@ -23,9 +23,6 @@ const mockitemsCarted = {
   ]
 }
 
-
-
-
 const footerStyle = {
   textAlign: 'center'
 }
@@ -46,17 +43,30 @@ const onClickCheckoutBtn = () => {
 
 }
 
+const contentDivStyle = () => {
+  return {
+    textAlign: 'center',
+    backgroundColor: getRandomColor(),
+    padding: '24px',
+    height: '500px'
+  }
+}
+const contentStyle = { padding: '0 50px', marginTop: 64 }
+
+const getRandomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+
+
 const ShoppingCart = () => {
 
   const listItems = mockitemsCarted.items.map((item, index) =>
-    <li key={index}>{`sku: ${item.sku} qty: ${item.qty}`}</li>
+    <h1 key={index}>{`sku: ${item.sku} qty: ${item.qty}`}</h1>
   )
 
   return (
-    <Layout.Content style={{ height: "500px", marginTop: 64 }}>
-      <div style={{ height: "100%" }} >
+    <Layout.Content style={contentStyle}>
+      <div style={contentDivStyle()} >
         <h1>Visão Carrinho</h1>
-        <ul>{listItems}</ul>
+        {listItems}
         <button onClick={onClickCheckoutBtn}>
           checkout
         </button>
