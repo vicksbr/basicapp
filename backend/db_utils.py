@@ -88,6 +88,11 @@ my_inventory = [
             {'cart_id': 'cart_id_2', 'qty': 5, 'timestamp': time_now},
         ]
 
+    },
+    {
+        '_id': 'sku300',
+        'qty': 50,
+        'carted': []
     }
 ]
 

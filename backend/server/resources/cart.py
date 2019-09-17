@@ -119,7 +119,7 @@ def create_cart_blueprint(debug):
 
         return json.dumps({'checkout': 'sucessful'})
 
-    @cart_blueprint.route("/<string:timeout>/expire", methods=['GET'])
+    @cart_blueprint.route("/expire/<string:timeout>", methods=['GET'])
     def expire_carts(timeout):
         now = datetime.utcnow()
         threshold = now - timedelta(seconds=timeout)
