@@ -111,18 +111,15 @@ def create_cart_blueprint(debug):
         try:
             collect_payment(cart)
             db.cart.update({'_id': cart_id}, {'$set': {'status': 'complete'}})
-            db.inventory.update(
-                {'carted.cart_id': cart_id},
-                {'$pull': {'cart_id': cart_id}},
-                multi=True
-            )
+            db.inventory.update({'carted.cart_id': cart_id}, {
+                                '$pull': {'cart_id': cart_id}}, multi=Trues)
         except:
             db.cart.update({'_id': cart_id}, {'$set': {'status': 'active'}})
             raise Exception('Problems with checkout')
 
         return json.dumps({'checkout': 'sucessful'})
 
-    @cart_blueprint.route("/<string:timeout>expire", methods=['GET'])
+    @cart_blueprint.route("/<string:timeout>/expire", methods=['GET'])
     def expire_carts(timeout):
         now = datetime.utcnow()
         threshold = now - timedelta(seconds=timeout)
