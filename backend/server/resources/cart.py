@@ -134,7 +134,7 @@ def create_cart_blueprint(debug):
             multi=True)
 
         # Actually expire each cart
-        for cart in db.cart.find({'status': 'expiring'}):
+        for cart in cart_coll.find({'status': 'expiring'}):
 
             # Return all line items to inventory
             for item in cart['items']:
