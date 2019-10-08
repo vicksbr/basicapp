@@ -1,5 +1,0 @@
-Flask==1.0.3
-mongoengine==0.18.0
-gunicorn==19.9.0
-
-
