@@ -1,7 +1,7 @@
 {
-  "name": "guardian",
+  "name": "basicApp",
   "version": "0.0.1",
-  "description": "\"Notification based app that watch for Raccoon's media accounts\"",
+  "description": "\"Template for web applications using flask and react\"",
   "repository": "https://github.com/vicksbr/basicapp.git",
   "license": "MIT",
   "devDependencies": {
