@@ -15,7 +15,7 @@ git clone https://github.com/vicksbr/basicapp.git
 **Build & run backend instructions**
 ```bash
 python3 -m venv env
-source /env/bin/activate
+source env/bin/activate
 python app.py
 ```
 
