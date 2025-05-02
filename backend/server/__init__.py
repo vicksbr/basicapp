@@ -13,7 +13,7 @@ def create_app(config, debug):
     index = create_index_blueprint(debug)    
     db = create_db_blueprint(debug)
     
-    app.register_blueprint(index, url_prefix="/")    
+    app.register_blueprint(index, url_prefix="/")
     app.register_blueprint(db, url_prefix="/api/db")
     
     return app

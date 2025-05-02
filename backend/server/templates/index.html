@@ -1,11 +1,16 @@
+<!DOCTYPE html>
 <html>
-  <head> </head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Flask + Vite</title>
+  </head>
   <body>
     <div id="app"></div>
+
     {% if debug %}
-    <script src="http://localhost:8080/bundle.js"></script>
+      <script type="module" src="http://localhost:5173/src/main.js"></script>
     {% else %}
-    <script src="http://localhost:5000/dist/bundle.js"></script>
+      <script type="module" src="{{ url_for('index_blueprint.dist', filename=entry_file) }}"></script>
     {% endif %}
   </body>
 </html>
